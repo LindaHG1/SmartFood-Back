@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Privacy{% endblock %}
+{% block title %}Políticas de Privacidad{% endblock %}
 
 {% block body %}
-    <h1>Create new Privacy</h1>
-
-    {{ include('privacy/_form.html.twig') }}
-
-    <a href="{{ path('app_privacy_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_privacy_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Políticas de Privacidad</h1>
+        {{ include('privacy/_form.html.twig') }}
+    </div>
 {% endblock %}

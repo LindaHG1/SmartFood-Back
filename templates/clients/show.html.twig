@@ -1,42 +1,74 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Clients{% endblock %}
+{% block title %}Clientes{% endblock %}
 
-{% block body %}
-    <h1>Clients</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ client.id }}</td>
-            </tr>
-            <tr>
-                <th>Name</th>
-                <td>{{ client.name }}</td>
-            </tr>
-            <tr>
-                <th>Lastname</th>
-                <td>{{ client.lastname }}</td>
-            </tr>
-            <tr>
-                <th>Address</th>
-                <td>{{ client.address }}</td>
-            </tr>
-            <tr>
-                <th>Email</th>
-                <td>{{ client.email }}</td>
-            </tr>
-            <tr>
-                <th>Password</th>
-                <td>{{ client.password }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_clients_index') }}">back to list</a>
-
-    <a href="{{ path('app_clients_edit', {'id': client.id}) }}">edit</a>
-
-    {{ include('clients/_delete_form.html.twig') }}
+{% block body %}    
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href={{ path('app_clients_index') }} class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h2 class="titleSection"><i class="fa-regular fa-eye me-2"></i>Detalle de Cliente</h2>
+        <div class="detailProduct Other">
+            <div class="infoProduct">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ client.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nombre:</th>
+                            <td>{{ client.name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Apellido:</th>
+                            <td>{{ client.lastname }}</td>
+                        </tr>
+                        <tr>
+                            <th>Dirección:</th>
+                            <td>{{ client.address }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email:</th>
+                            <td>{{ client.email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Contaseña:</th>
+                            <td>{{ client.password }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="actionsForm">
+                    <a href={{ path('app_clients_edit', {'id': client.id}) }} class="btn btn-edit"><i class="fa-regular fa-pen-to-square me-2"></i> Editar</a>
+                    {{ include('clients/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="detailOrders">
+            <h2>Resumen de Pedidos</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>N° de Pedido</th>
+                        <th>Fecha del Pedido</th>
+                        <th>Resumen del Pedido</th>
+                        <th>Total</th>
+                        <th>Dirección de Entrega</th>
+                        <th>Fecha de Entrega</th>
+                    </tr>
+                </thead>
+                    <tbody>
+                        <tr>
+                            <td>001</td>
+                            <td>03/04/2023</td>
+                            <td>Limones, Manzanaz, Peras</td>
+                            <td>25</td>
+                            <td>Av. de America, 301</td>
+                            <td>05/04/2023</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>        
+    </div>
 {% endblock %}

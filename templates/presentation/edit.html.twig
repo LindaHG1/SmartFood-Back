@@ -1,13 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Edit Presentation{% endblock %}
+{% block title %}Productos | Presentación{% endblock %}
 
 {% block body %}
-    <h1>Edit Presentation</h1>
-
-    {{ include('presentation/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_presentation_index') }}">back to list</a>
-
-    {{ include('presentation/_delete_form.html.twig') }}
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_presentation_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-pen-to-square me-3"></i>Editar Presentación</h1>
+        {{ include('presentation/_form.html.twig', {'button_label': 'Guardar'}) }}
+        <div class="actionsForm">
+            {{ include('presentation/_delete_form.html.twig') }}
+        </div>
+    </div>
 {% endblock %}

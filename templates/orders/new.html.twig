@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Orders{% endblock %}
+{% block title %}Pedidos{% endblock %}
 
 {% block body %}
-    <h1>Create new Orders</h1>
-
-    {{ include('orders/_form.html.twig') }}
-
-    <a href="{{ path('app_orders_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_orders_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Pedido</h1>
+        {{ include('orders/_form.html.twig') }}
+    </div>
 {% endblock %}

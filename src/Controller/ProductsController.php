@@ -63,7 +63,6 @@ class ProductsController extends AbstractController
                 $productsRepository->save($product, true);
             }
             
-
             return $this->redirectToRoute('app_products_index', [], Response::HTTP_SEE_OTHER);
         }
 

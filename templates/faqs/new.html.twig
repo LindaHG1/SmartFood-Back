@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Faqs{% endblock %}
+{% block title %}Preguntas Frecuentes{% endblock %}
 
 {% block body %}
-    <h1>Create new Faqs</h1>
-
-    {{ include('faqs/_form.html.twig') }}
-
-    <a href="{{ path('app_faqs_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_faqs_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Pregunta</h1>
+        {{ include('faqs/_form.html.twig') }}
+    </div>
 {% endblock %}

@@ -1,35 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Categories index{% endblock %}
+{% block title %}Productos | Categorías{% endblock %}
 
 {% block body %}
-    <h1>Categories index</h1>
+    <div class="content">
+        <h1 class="titleSection"><i class="fa-regular fa-bookmark me-3"></i> Categorías</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>TypeCategory</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for category in categories %}
-            <tr>
-                <td>{{ category.id }}</td>
-                <td>{{ category.typeCategory }}</td>
-                <td>
-                    <a href="{{ path('app_categories_show', {'id': category.id}) }}">show</a>
-                    <a href="{{ path('app_categories_edit', {'id': category.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Categoría</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.typeCategory }}</td>
+                    <td>
+                        <a href="{{ path('app_categories_show', {'id': category.id}) }}" class="btn btn-show"><i class="fa-regular fa-eye"></i></a>
+                        <a href="{{ path('app_categories_edit', {'id': category.id}) }}" class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No se encontraron Categorías</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_categories_new') }}">Create new</a>
+        <a href="{{ path('app_categories_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+    
+    </div>
 {% endblock %}

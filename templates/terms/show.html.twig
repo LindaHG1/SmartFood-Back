@@ -1,26 +1,32 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Terms{% endblock %}
+{% block title %}Términos y Condiciones{% endblock %}
 
 {% block body %}
-    <h1>Terms</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ term.id }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ term.description }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_terms_index') }}">back to list</a>
-
-    <a href="{{ path('app_terms_edit', {'id': term.id}) }}">edit</a>
-
-    {{ include('terms/_delete_form.html.twig') }}
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href={{ path('app_terms_index') }} class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver</a>
+        </div>
+        <h2 class="titleSection"><i class="fa-regular fa-eye me-2"></i>Detalle de Términos y Condiciones</h2>
+        <div class="detailProduct Other">
+            <div class="infoProduct">
+                <table class="table">
+                    <tbody>
+                        {# <tr>
+                            <th>Id</th>
+                            <td>{{ term.id }}</td>
+                        </tr> #}
+                        <tr>
+                            <th>Descripción</th>
+                            <td>{{ term.description }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="actionsForm">
+                    <a href={{ path('app_terms_edit', {'id': term.id}) }} class="btn btn-edit"><i class="fa-regular fa-pen-to-square me-2"></i> Editar</a>
+                    {# {{ include('terms/_delete_form.html.twig') }} #}
+                </div>
+            </div>
+        </div>        
+    </div>
 {% endblock %}

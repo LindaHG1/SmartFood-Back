@@ -1,37 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Faqs index{% endblock %}
+{% block title %}Preguntas Frecuentes{% endblock %}
 
 {% block body %}
-    <h1>Faqs index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Question</th>
-                <th>Answer</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for faq in faqs %}
-            <tr>
-                <td>{{ faq.id }}</td>
-                <td>{{ faq.question }}</td>
-                <td>{{ faq.answer }}</td>
-                <td>
-                    <a href="{{ path('app_faqs_show', {'id': faq.id}) }}">show</a>
-                    <a href="{{ path('app_faqs_edit', {'id': faq.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="4">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_faqs_new') }}">Create new</a>
+    <div class="content">
+        <h1 class="titleSection"><i class="fa-solid fa-shop me-3"></i> Preguntas Frecuentes</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Pregunta</th>
+                    <th>Respuesta</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for faq in faqs %}
+                <tr>
+                    <td>{{ faq.id }}</td>
+                    <td>{{ faq.question }}</td>
+                    <td>{{ faq.answer }}</td>
+                    <td>
+                        <a href="{{ path('app_faqs_show', {'id': faq.id}) }}" class="btn btn-show">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_faqs_edit', {'id': faq.id}) }}" class="btn btn-edit">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No se encontraron Preguntas</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('app_faqs_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+    </div>
 {% endblock %}

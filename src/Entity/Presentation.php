@@ -21,6 +21,8 @@ class Presentation
     #[ORM\ManyToMany(targetEntity: Products::class, mappedBy: 'presentation')]
     private Collection $products;
 
+    
+
     public function __construct()
     {
         $this->products = new ArrayCollection();

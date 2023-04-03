@@ -16,9 +16,6 @@ class Products
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $photo = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -27,8 +24,11 @@ class Products
     #[ORM\Column(length: 255)]
     private ?string $price = null;
 
+    #[ORM\Column]
+    private ?bool $state = null;
+
     #[ORM\Column(length: 255)]
-    private ?string $state = null;
+    private ?string $photo = null;
 
     #[ORM\ManyToMany(targetEntity: Orders::class, mappedBy: 'detail')]
     private Collection $orders;
@@ -49,18 +49,6 @@ class Products
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
     }
 
     public function getName(): ?string
@@ -112,6 +100,18 @@ class Products
     public function setState(bool $state): self
     {
         $this->state = $state;
+
+        return $this;
+    }
+    
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
 
         return $this;
     }

@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Categories{% endblock %}
+{% block title %}Productos | Categorías{% endblock %}
 
 {% block body %}
-    <h1>Create new Categories</h1>
-
-    {{ include('categories/_form.html.twig') }}
-
-    <a href="{{ path('app_categories_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_categories_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Categoría</h1>
+        {{ include('categories/_form.html.twig') }}
+    </div> 
 {% endblock %}
