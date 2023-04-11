@@ -148,6 +148,11 @@ form[name="store"]{
 form .actionsForm {
     margin-top: 15px;
 }
+
+.table-products thead tr th:nth-child(6) {
+    width: 140px;
+    text-align: center;
+}
 /* Sidebar */
 .sidebar {
     position: fixed;

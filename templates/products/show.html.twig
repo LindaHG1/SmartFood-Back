@@ -30,13 +30,21 @@
                         <tr>
                             <th>Categoria (s):</th>
                             <td>
-                            {# {{ product.category }} #}Categorias
+                                {% set categoryTypes = [] %}
+                                {% for category in product.category %}
+                                    {% set categoryTypes = categoryTypes|merge([category.typeCategory]) %}
+                                {% endfor %}
+                                {{ categoryTypes|join(', ') }}
                             </td>
                         </tr>
                         <tr>
                             <th>Presentación:</th>
                             <td>
-                            {# {{ product.category }} #}Presentación
+                            {% set presentationTypes = [] %}
+                            {% for presentation in product.presentation %}
+                                {% set presentationTypes = presentationTypes|merge([presentation.typePresentation]) %}
+                            {% endfor %}
+                            {{ presentationTypes|join(', ') }}
                             </td>
                         </tr>
                         <tr>

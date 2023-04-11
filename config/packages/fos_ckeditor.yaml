@@ -1,0 +1,33 @@
+# Read the documentation: https://symfony.com/doc/current/bundles/FOSCKEditorBundle/index.html
+
+twig:
+    form_themes:
+        - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
+fos_ck_editor:
+    base_path: 'bundles/fosckeditor/'
+    js_path:   'bundles/fosckeditor/ckeditor.js'
+    jquery_path: 'bundles/fosckeditor/adapters/jquery.js'
+    jquery: true
+    #autoload: false
+    input_sync: true
+    default_config: 'minima_config'
+    configs:
+        minima_config:
+            language: '%kernel.default_locale%'
+            font_defaultLabel: 'Arial'
+            fontSize_defaultLabel: '12px'
+            uiColor: '#f9f9f9'
+            async: true
+            autoload: true
+            toolbar: 'minima_toolbar'
+        media_config:
+            language: '%kernel.default_locale%'
+            uiColor: '#f9f9f9'
+            async: true
+            autoload: true
+            toolbar: 'media_toolbar'
+    toolbars:
+        configs:
+            minima_toolbar: [[Bold, Italic, Underline, Strike, Subscript, Superscript], [NumberedList, BulletedList, '-', Outdent, Indent, '-', JustifyLeft, JustifyCenter, JustifyRight, JustifyBlock], [Maximize]]
+            media_toolbar: [[Bold, Italic, Underline, Strike, Subscript, Superscript], [TextColor], [NumberedList, BulletedList, '-', Outdent, Indent, '-', JustifyLeft, JustifyCenter, JustifyRight, JustifyBlock],[Preview, Print], [Styles, Format, Font, FontSize], [Maximize]]

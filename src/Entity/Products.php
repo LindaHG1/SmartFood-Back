@@ -38,6 +38,7 @@ class Products
 
     #[ORM\ManyToMany(targetEntity: Presentation::class, inversedBy: 'products')]
     private Collection $presentation;
+    
 
     public function __construct()
     {
@@ -66,6 +67,8 @@ class Products
     public function __toString()
     {
         return $this->getName();
+        return $this->getCategory();
+        return $this->getPresentation();
     }
 
     public function getDescription(): ?string
@@ -127,7 +130,7 @@ class Products
     public function addCategory(Categories $category): self
     {
         if (!$this->category->contains($category)) {
-            $this->category->add($category);
+            $this->category[]= $category;
         }
 
         return $this;

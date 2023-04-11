@@ -89,6 +89,7 @@ class ProductsType extends AbstractType
                 'choice_label' => 'typeCategory',
                 'expanded' => true,
                 'multiple' => true,
+                'by_reference' => false, // Set to false to allow collection to be modified
                 'attr' => [
                     'class' => 'form-check',
                 ],
@@ -102,6 +103,7 @@ class ProductsType extends AbstractType
                 'choice_label' => 'typePresentation',
                 'expanded' => true,
                 'multiple' => true,
+                'by_reference' => false, // Set to false to allow collection to be modified
                 'attr' => [
                     'class' => 'form-check',
                 ],

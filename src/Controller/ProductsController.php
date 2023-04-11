@@ -60,12 +60,20 @@ class ProductsController extends AbstractController
                 // updates the 'imagename' property to store the PDF file name
                 // instead of its contents
                 $product->setPhoto($newFilename);
-                $productsRepository->save($product, true);
             }
+           
+            // $productsRepository->save($product, true);
             
+            // return $this->redirectToRoute('app_products_index', [], Response::HTTP_SEE_OTHER);
+        
+            $selectedCategories = $form->get('categories')->getData();
+            foreach ($selectedCategories as $category) {
+                $product->addCategory($category);
+            }
+
+            $productsRepository->save($product, true);
             return $this->redirectToRoute('app_products_index', [], Response::HTTP_SEE_OTHER);
         }
-
         return $this->renderForm('products/new.html.twig', [
             'product' => $product,
             'form' => $form,
@@ -81,7 +89,7 @@ class ProductsController extends AbstractController
     }
 
     #[Route('/{id}/edit', name: 'app_products_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Products $product, ProductsRepository $productsRepository): Response
+    public function edit(Request $request, Products $product, ProductsRepository $productsRepository, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
@@ -111,10 +119,21 @@ class ProductsController extends AbstractController
                 // updates the 'imagename' property to store the PDF file name
                 // instead of its contents
                 $product->setPhoto($newFilename);
-                $productsRepository->save($product, true);
             }
 
+            $selectedCategories = $form->get('category')->getData();
+            foreach ($selectedCategories as $category) {
+                $product->addCategory($category);
+            }
+
+            $selectedPresentations = $form->get('presentation')->getData();
+            foreach ($selectedPresentations as $presentation) {
+                $product->addPresentation($presentation);
+            }
+
+            $productsRepository->save($product, true);
             return $this->redirectToRoute('app_products_index', [], Response::HTTP_SEE_OTHER);
+
         }
 
         return $this->renderForm('products/edit.html.twig', [
