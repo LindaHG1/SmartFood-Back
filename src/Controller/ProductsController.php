@@ -31,6 +31,7 @@ class ProductsController extends AbstractController
     public function new(Request $request, ProductsRepository $productsRepository, SluggerInterface $slugger): Response
     {
         $product = new Products();
+        $product->setQuantity(1);
         $form = $this->createForm(ProductsType::class, $product);
         $form->handleRequest($request);
 

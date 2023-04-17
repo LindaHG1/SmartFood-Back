@@ -39,7 +39,7 @@ class Products
     #[ORM\ManyToMany(targetEntity: Presentation::class, inversedBy: 'products')]
     private Collection $presentation;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'integer', options: ['default' => 1])]
     private ?int $quantity = null;
     
 
