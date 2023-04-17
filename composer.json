@@ -13,7 +13,6 @@
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.9",
         "friendsofsymfony/ckeditor-bundle": "^2.4",
-        "knplabs/knp-paginator-bundle": "^6.2",
         "nelmio/cors-bundle": "^2.3",
         "nyholm/psr7": "^1.5",
         "sensio/framework-extra-bundle": "^6.2",
