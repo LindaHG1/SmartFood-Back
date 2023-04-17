@@ -10,6 +10,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
+                    <th>Imagen</th>
                     <th>Categoría</th>
                     <th>Acciones</th>
                 </tr>
@@ -18,6 +19,9 @@
             {% for category in categories %}
                 <tr>
                     <td>{{ category.id }}</td>
+                    <td>
+                        <img src={{ asset('uploads/categories/' ~ category.photo) }} alt={{ category.typeCategory }} width="120">
+                    </td>
                     <td>{{ category.typeCategory }}</td>
                     <td>
                         <a href="{{ path('app_categories_show', {'id': category.id}) }}" class="btn btn-show"><i class="fa-regular fa-eye"></i></a>

@@ -63,5 +63,6 @@
             </tbody>
         </table>
         <a href="{{ path('app_products_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+        {{ knp_pagination_render(pagination) }}
     </div>
 {% endblock %}
