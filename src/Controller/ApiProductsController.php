@@ -119,6 +119,56 @@ class ApiProductsController extends AbstractController
 
         return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
     }
+
+    #[Route('/products/category/{category}', name: 'app_apiproducts_index_by_category', methods: ['GET'])]
+public function indexByCategory(ProductsRepository $productsRepository, $category): Response
+{
+    $products = $productsRepository->createQueryBuilder('p')
+        ->select('p', 'c', 'pr')
+        ->leftJoin('p.category', 'c')
+        ->leftJoin('p.presentation', 'pr')
+        ->where('c.typeCategory = :category')
+        ->setParameter('category', $category)
+        ->getQuery()
+        ->getResult();
+
+        $data = [];
+
+        foreach ($products as $pd) {
+            $categoryData = [];
+            $presentationData = [];
+
+            // Obtenemos los datos de la entidad Category
+            foreach ($pd->getCategory() as $category) {
+                $categoryData[] = [
+                    'id' => $category->getId(),
+                    'typeCategory' => $category->getTypeCategory(),
+                ];
+            }
+
+            // Obtenemos los datos de la entidad Presentation
+            foreach ($pd->getPresentation() as $presentation) {
+                $presentationData[] = [
+                    'id' => $presentation->getId(),
+                    'typePresentation' => $presentation->getTypePresentation(),
+                ];
+            }
+
+            $data[] = [
+                'id' => $pd->getId(),
+                'name' => $pd->getName(),
+                'description' => $pd->getDescription(),
+                'price' => $pd->getPrice(),
+                'quantity' => $pd->getQuantity(),
+                'state' => $pd->isState(),
+                'photo' => $pd->getPhoto(),
+                'category' => $categoryData,
+                'presentation' => $presentationData,
+            ];
+        }
+
+        return $this->json($data, $status = 200, $headers = ['Access-Control-Allow-Origin'=>'*']);
+    }
+
+
 }
-
-
