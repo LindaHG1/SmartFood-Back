@@ -41,9 +41,11 @@
                         <li class="list-group-item py-1">
                             <a href={{ path('app_clients_index') }} class="text-reset">Listado</a>
                         </li>
+                        {% if is_granted('ROLE_ADMIN') %}
                         <li class="list-group-item py-1">
                             <a href={{ path('app_clients_new') }} class="text-reset">Agregar nuevo</a>
                         </li>
+                        {% endif %}
                     </ul>
                     <!-- Collapse 1 -->
 
@@ -74,9 +76,11 @@
                         <li class="list-group-item py-1">
                             <a href={{ path('app_products_index') }} class="text-reset">Listado</a>
                         </li>
+                        {% if is_granted('ROLE_ADMIN') %}
                         <li class="list-group-item py-1">
                             <a href={{ path('app_products_new') }} class="text-reset">Agregar nuevo</a>
                         </li>
+                        {% endif %}
                         <li class="list-group-item py-1">
                             <a href={{ path('app_categories_index') }} class="text-reset">Categorias</a>
                         </li>
@@ -85,7 +89,7 @@
                         </li>
                     </ul>
                     <!-- Collapse 3 -->
-                    
+                    {% if is_granted('ROLE_ADMIN') %}
                     <!-- Collapse 4 -->
                     <a class="nav-link list-group-item list-group-item-action py-2 ripple" aria-current="true"
                     data-mdb-toggle="collapse" href="#collapseTienda" aria-expanded="true"
@@ -114,6 +118,8 @@
                         </li>
                     </ul>
                     <!-- Collapse 4 -->
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') %}
                     <!-- Collapse 5 -->
                     <a class="nav-link list-group-item list-group-item-action py-2 ripple" aria-current="true"
                     data-mdb-toggle="collapse" href="#collapseConfig" aria-expanded="true"
@@ -123,13 +129,14 @@
                     <!-- Collapsed content -->
                     <ul id="collapseConfig" class="collapse list-group list-group-flush">
                         <li class="list-group-item py-1">
-                            <a href="" class="text-reset">Usuarios</a>
+                            <a href={{ path('app_users_index') }} class="text-reset">Usuarios</a>
                         </li>
-                        <li class="list-group-item py-1">
+                        {# <li class="list-group-item py-1">
                             <a href="" class="text-reset">Roles</a>
-                        </li>
+                        </li> #}
                     </ul>
                     <!-- Collapse 5 -->
+                    {% endif %}
                     <!-- Collapse 6 -->
                     <!-- Collapsed content -->
                     <ul id="collapseCerrar" class="collapse show list-group list-group-flush">
@@ -162,74 +169,21 @@
             </a>
             <!-- Right links -->
             <ul class="navbar-nav ms-auto d-flex flex-row">
-                <!-- Notification dropdown -->
-                <li class="nav-item dropdown">
-                <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdownMenuLink"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-bell"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">1</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">Some news</a></li>
-                    <li><a class="dropdown-item" href="#">Another news</a></li>
-                    <li>
-                    <a class="dropdown-item" href="#">Something else here</a>
-                    </li>
-                </ul>
-                </li>
-
-                <!-- Icon dropdown -->
-                <li class="nav-item dropdown">
-                <a class="nav-link me-3 me-lg-0 dropdown-toggle hidden-arrow" href="#" id="navbarDropdown"
-                    role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <i class="united kingdom flag m-0"></i>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="united kingdom flag"></i>English
-                        <i class="fa fa-check text-success ms-2"></i></a>
-                    </li>
-                    <li>
-                    <hr class="dropdown-divider" />
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-poland flag"></i>Polski</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-china flag"></i>中文</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-japan flag"></i>日本語</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-germany flag"></i>Deutsch</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-france flag"></i>Français</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-spain flag"></i>Español</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-russia flag"></i>Русский</a>
-                    </li>
-                    <li>
-                    <a class="dropdown-item" href="#"><i class="flag-portugal flag"></i>Português</a>
-                    </li>
-                </ul>
-                </li>
-
                 <!-- Avatar -->
+                <li class="nav-item">
+                    {% if app.user %}
+                        <span class="name-user">
+                            Hola, {{ app.user.userIdentifier }}!
+                        </span>
+                    {% endif %}
+                </li>
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center" href="#"
                     id="navbarDropdownMenuLink" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle"
-                    height="22" alt="Avatar" loading="lazy" />
+                    <i class="fa-regular fa-circle-user"></i>
                 </a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                    <li><a class="dropdown-item" href="#">My profile</a></li>
-                    <li><a class="dropdown-item" href="#">Settings</a></li>
-                    <li><a class="dropdown-item" href="#">Logout</a></li>
+                    <li><a class="dropdown-item" href={{ path('app_logout') }}>Cerrar Sesión</a></li>
                 </ul>
                 </li>
             </ul>

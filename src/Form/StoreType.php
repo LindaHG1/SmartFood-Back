@@ -9,6 +9,8 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+
 
 
 class StoreType extends AbstractType
@@ -54,6 +56,15 @@ class StoreType extends AbstractType
             ])
             ->add('youtube', TextType::class, [
                 'label' => 'Youtube:',
+                'label_attr' => [
+                    'class' => 'form-label',
+                ],
+                'attr' => [
+                    'class' => 'form-control',
+                ],
+            ])
+            ->add('aboutus', TextareaType::class, [
+                'label' => 'Sobre nosotros:',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],

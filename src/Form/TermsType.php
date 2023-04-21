@@ -25,19 +25,15 @@ class TermsType extends AbstractType
             //         'class' => 'form-control',
             //     ],
             // ])
-            ->add('description', CKEditorType::class, [
-                'config_name' => 'minima_config',
+            ->add('description', TextareaType::class, [
                 'label' => 'Descripción:',
                 'label_attr' => [
                     'class' => 'form-label',
                 ],
                 'attr' => [
-                    'placeholder' => 'Escriba su articulo',
-                    'class' => 'articulo form-control',
-                    'block_prefix' => 'articulo_text',
-                ]
-            ])
-        ;
+                    'class' => 'form-control',
+                ],
+            ]);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

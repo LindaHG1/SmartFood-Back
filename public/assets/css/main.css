@@ -139,7 +139,8 @@ form[name="orders"],
 form[name="faqs"],
 form[name="terms"],
 form[name="privacy"],
-form[name="store"]{
+form[name="store"],
+form[name="registration_form"]{
     border: 1px solid #587608;
     padding: 20px;
     border-radius: 8px;
@@ -215,4 +216,59 @@ nav#sidebarMenu .position-sticky .list-group .list-group-item.active {
 }
 nav#main-navbar {
     background-color: #F09D06!important;
+}
+
+.content-form-login {
+    width: 380px;
+    margin: 0 auto;
+    border: 1px solid #7a9628;
+    padding: 30px;
+    border-radius: 20px;
+    margin-top: 45px;
+}
+
+.content-form-login .logoHome {
+    width: 150px;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.content-form-login form {
+    width: 100%;
+}
+
+.content-form-login form h1 {
+    text-align: center;
+    color: #769729;
+}
+
+.content-form-login form .form-group {
+    margin-bottom: 15px;
+}
+
+.content-form-login form .form-group label {
+    font-size: 15px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-item .name-user {
+    color: #FFF;
+    font-size: 18px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.navbar-expand-lg .navbar-nav .nav-item .nav-link .svg-inline--fa {
+    width: 30px;
+    height: auto;
+}
+
+.navbar-expand-lg .navbar-nav .nav-item .nav-link .svg-inline--fa path {
+    fill: #FFF;
+}
+
+.navbar-expand-lg .navbar-nav {
+    align-items: center;
 }

@@ -5,3 +5,14 @@
 orders:
     path: /orders
     controller: App\Controller\OrderController::index
+
+api_login_check:
+    path: /api/login_check
+
+app_clients_edit:
+    path: /clients/{id}/edit
+    controller: App\Controller\ClientController::edit
+    methods: [GET, POST]
+    requirements:
+        _access_control: 'is_granted("ROLE_ADMIN")'
+        id: \d+
