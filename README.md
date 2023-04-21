@@ -34,17 +34,17 @@ Smartfood es un proyecto de comercio electrónico que se dedica a la venta de fr
   
 ## Diseño
 
-<img src="https://i.postimg.cc/jj7HJTck/Whats-App-Image-2023-04-20-at-13-04-17.jpg" width="300px"><img src="https://i.postimg.cc/76DkTg0G/Whats-App-Image-2023-04-20-at-13-05-47.jpg" width="300px">
+<img src="https://i.postimg.cc/d3FKGvtF/Whats-App-Image-2023-04-21-at-14-08-09.jpg" width="300px"><img src="https://i.postimg.cc/qvZcqxpc/Whats-App-Image-2023-04-21-at-14-08-42.jpg" width="300px">
 
-<img src="https://i.postimg.cc/yNYVfML6/Whats-App-Image-2023-04-20-at-13-06-39.jpg" width="300px"><img src="https://i.postimg.cc/3R8tVH6R/Whats-App-Image-2023-04-20-at-13-07-16.jpg" width="300px">
+<img src="https://i.postimg.cc/K8rSy4Fy/Whats-App-Image-2023-04-21-at-14-09-04.jpg" width="300px"><img src="https://i.postimg.cc/VLJZRv5F/Whats-App-Image-2023-04-21-at-14-09-25.jpg" width="300px">
 
-<img src="https://i.postimg.cc/tRMH3rZP/Whats-App-Image-2023-04-20-at-13-09-50.jpg" width="300px"><img src="https://i.postimg.cc/nrj7XdgZ/Whats-App-Image-2023-04-20-at-13-10-48.jpg" width="300px">
-
-
-<img src="https://i.postimg.cc/gjtXd1Dm/Whats-App-Image-2023-04-20-at-13-12-11.jpg" width="300px"><img src="https://i.postimg.cc/j5gPdWxp/Whats-App-Image-2023-04-20-at-13-13-29.jpg" width="300px">
+<img src="https://i.postimg.cc/VLJZRv5F/Whats-App-Image-2023-04-21-at-14-09-25.jpg" width="300px"><img src="https://i.postimg.cc/ZRjsXVN9/Whats-App-Image-2023-04-21-at-14-09-45.jpg" width="300px">
 
 
-<img src="https://i.postimg.cc/PxjTpKxZ/Whats-App-Image-2023-04-20-at-13-14-25.jpg" width="300px">
+<img src="https://i.postimg.cc/gj3T0mX7/Whats-App-Image-2023-04-21-at-14-10-29.jpg" width="300px">
+
+
+
  
  ## Tecnologías
 
