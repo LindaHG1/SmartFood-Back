@@ -79,6 +79,7 @@ Smartfood es un proyecto de comercio electrónico que se dedica a la venta de fr
 ## Tests 
 
 * Phanter
+* Ejecutar:php bin/phpunit
 
 ## Metodologia
 
