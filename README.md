@@ -85,7 +85,7 @@ Smartfood es un proyecto de comercio electrónico que se dedica a la venta de fr
 
 * Agile and Scrum
 * Pair Programming
-* TDD
+
 
 
 
