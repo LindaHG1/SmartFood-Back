@@ -16,9 +16,6 @@ class Products
     private ?int $id = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $photo = null;
-
-    #[ORM\Column(length: 255)]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
@@ -27,8 +24,11 @@ class Products
     #[ORM\Column(length: 255)]
     private ?string $price = null;
 
+    #[ORM\Column]
+    private ?bool $state = null;
+
     #[ORM\Column(length: 255)]
-    private ?string $state = null;
+    private ?string $photo = null;
 
     #[ORM\ManyToMany(targetEntity: Orders::class, mappedBy: 'detail')]
     private Collection $orders;
@@ -38,6 +38,10 @@ class Products
 
     #[ORM\ManyToMany(targetEntity: Presentation::class, inversedBy: 'products')]
     private Collection $presentation;
+
+    #[ORM\Column(type: 'integer', options: ['default' => 1])]
+    private ?int $quantity = null;
+    
 
     public function __construct()
     {
@@ -51,18 +55,6 @@ class Products
         return $this->id;
     }
 
-    public function getPhoto(): ?string
-    {
-        return $this->photo;
-    }
-
-    public function setPhoto(string $photo): self
-    {
-        $this->photo = $photo;
-
-        return $this;
-    }
-
     public function getName(): ?string
     {
         return $this->name;
@@ -73,6 +65,13 @@ class Products
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getName();
+        return $this->getCategory();
+        return $this->getPresentation();
     }
 
     public function getDescription(): ?string
@@ -99,41 +98,26 @@ class Products
         return $this;
     }
 
-    public function getState(): ?string
+    public function isState(): ?bool
     {
         return $this->state;
     }
 
-    public function setState(string $state): self
+    public function setState(bool $state): self
     {
         $this->state = $state;
 
         return $this;
     }
-
-    /**
-     * @return Collection<int, Orders>
-     */
-    public function getOrders(): Collection
+    
+    public function getPhoto(): ?string
     {
-        return $this->orders;
+        return $this->photo;
     }
 
-    public function addOrder(Orders $order): self
+    public function setPhoto(string $photo): self
     {
-        if (!$this->orders->contains($order)) {
-            $this->orders->add($order);
-            $order->addDetail($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Orders $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            $order->removeDetail($this);
-        }
+        $this->photo = $photo;
 
         return $this;
     }
@@ -149,7 +133,7 @@ class Products
     public function addCategory(Categories $category): self
     {
         if (!$this->category->contains($category)) {
-            $this->category->add($category);
+            $this->category[]= $category;
         }
 
         return $this;
@@ -182,6 +166,18 @@ class Products
     public function removePresentation(Presentation $presentation): self
     {
         $this->presentation->removeElement($presentation);
+
+        return $this;
+    }
+
+    public function getQuantity(): ?int
+    {
+        return $this->quantity;
+    }
+
+    public function setQuantity(int $quantity): self
+    {
+        $this->quantity = $quantity;
 
         return $this;
     }

@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Terms{% endblock %}
+{% block title %}Términos y Condiciones{% endblock %}
 
 {% block body %}
-    <h1>Create new Terms</h1>
-
-    {{ include('terms/_form.html.twig') }}
-
-    <a href="{{ path('app_terms_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_terms_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Términos y condiciones</h1>
+        {{ include('terms/_form.html.twig') }}
+    </div>
 {% endblock %}
+

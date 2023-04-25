@@ -39,9 +39,9 @@ class ProductsRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return Products[] Returns an array of Products objects
-//     */
+   /**
+    * @return Products[] Returns an array of Products objects
+    */
 //    public function findByExampleField($value): array
 //    {
 //        return $this->createQueryBuilder('p')
@@ -54,11 +54,11 @@ class ProductsRepository extends ServiceEntityRepository
 //        ;
 //    }
 
-//    public function findOneBySomeField($value): ?Products
+//    public function findProductsByCategory($category): ?Products
 //    {
 //        return $this->createQueryBuilder('p')
-//            ->andWhere('p.exampleField = :val')
-//            ->setParameter('val', $value)
+//            ->andWhere('p.category = :cat')
+//            ->setParameter('cat', $category)
 //            ->getQuery()
 //            ->getOneOrNullResult()
 //        ;

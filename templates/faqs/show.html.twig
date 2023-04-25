@@ -1,30 +1,36 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Faqs{% endblock %}
+{% block title %}Preguntas Frecuentes{% endblock %}
 
 {% block body %}
-    <h1>Faqs</h1>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ faq.id }}</td>
-            </tr>
-            <tr>
-                <th>Question</th>
-                <td>{{ faq.question }}</td>
-            </tr>
-            <tr>
-                <th>Answer</th>
-                <td>{{ faq.answer }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_faqs_index') }}">back to list</a>
-
-    <a href="{{ path('app_faqs_edit', {'id': faq.id}) }}">edit</a>
-
-    {{ include('faqs/_delete_form.html.twig') }}
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href={{ path('app_faqs_index') }} class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver a la lista</a>
+        </div>
+        <h2 class="titleSection"><i class="fa-regular fa-eye me-2"></i>Detalle de Pregunta</h2>
+        <div class="detailProduct Other">
+            <div class="infoProduct">
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ faq.id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Pregunta</th>
+                            <td>{{ faq.question }}</td>
+                        </tr>
+                        <tr>
+                            <th>Respuesta</th>
+                            <td>{{ faq.answer }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="actionsForm">
+                    <a href={{ path('app_faqs_edit', {'id': faq.id}) }} class="btn btn-edit"><i class="fa-regular fa-pen-to-square me-2"></i> Editar</a>
+                    {{ include('faqs/_delete_form.html.twig') }}
+                </div>
+            </div>
+        </div>        
+    </div>
 {% endblock %}

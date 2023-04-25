@@ -1,43 +1,49 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Store index{% endblock %}
+{% block title %}Información de Contacto{% endblock %}
 
 {% block body %}
-    <h1>Store index</h1>
+    <div class="content">
+        <h1 class="titleSection"><i class="fa-solid fa-shop me-3"></i> Información de Contacto</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Address</th>
-                <th>Phone</th>
-                <th>Instagram</th>
-                <th>Facebook</th>
-                <th>Youtube</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for store in stores %}
-            <tr>
-                <td>{{ store.id }}</td>
-                <td>{{ store.address }}</td>
-                <td>{{ store.phone }}</td>
-                <td>{{ store.instagram }}</td>
-                <td>{{ store.facebook }}</td>
-                <td>{{ store.youtube }}</td>
-                <td>
-                    <a href="{{ path('app_store_show', {'id': store.id}) }}">show</a>
-                    <a href="{{ path('app_store_edit', {'id': store.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="7">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    {# <th>Id</th> #}
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Instagram</th>
+                    <th>Facebook</th>
+                    <th>Youtube</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for store in stores %}
+                <tr>
+                    {# <td>{{ store.id }}</td> #}
+                    <td>{{ store.address }}</td>
+                    <td>{{ store.phone }}</td>
+                    <td>{{ store.instagram }}</td>
+                    <td>{{ store.facebook }}</td>
+                    <td>{{ store.youtube }}</td>
+                    <td>
+                        <a href="{{ path('app_store_show', {'id': store.id}) }}" class="btn btn-show">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_store_edit', {'id': store.id}) }}" class="btn btn-edit">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="7">No se encontró Información de Contacto</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_store_new') }}">Create new</a>
+        <a href="{{ path('app_store_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+    </div>
 {% endblock %}

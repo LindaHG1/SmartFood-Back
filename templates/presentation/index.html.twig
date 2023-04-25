@@ -1,35 +1,37 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Presentation index{% endblock %}
+{% block title %}Productos | Presentación{% endblock %}
 
 {% block body %}
-    <h1>Presentation index</h1>
+    <div class="content">
+        <h1 class="titleSection"><i class="fa-solid fa-weight-hanging me-3"></i> Presentación</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>TypePresentation</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for presentation in presentations %}
-            <tr>
-                <td>{{ presentation.id }}</td>
-                <td>{{ presentation.typePresentation }}</td>
-                <td>
-                    <a href="{{ path('app_presentation_show', {'id': presentation.id}) }}">show</a>
-                    <a href="{{ path('app_presentation_edit', {'id': presentation.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Presentación</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for presentation in presentations %}
+                <tr>
+                    <td>{{ presentation.id }}</td>
+                    <td>{{ presentation.typePresentation }}</td>
+                    <td>
+                        <a href="{{ path('app_presentation_show', {'id': presentation.id}) }}" class="btn btn-show"><i class="fa-regular fa-eye"></i></a>
+                        <a href="{{ path('app_presentation_edit', {'id': presentation.id}) }}" class="btn btn-edit"><i class="fa-regular fa-pen-to-square"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No se encontraron registros</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <a href="{{ path('app_presentation_new') }}">Create new</a>
+        <a href="{{ path('app_presentation_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+    </div>
 {% endblock %}

@@ -21,6 +21,9 @@ class Categories
     #[ORM\ManyToMany(targetEntity: Products::class, mappedBy: 'category')]
     private Collection $products;
 
+    #[ORM\Column(length: 255)]
+    private ?string $photo = null;
+
     public function __construct()
     {
         $this->products = new ArrayCollection();
@@ -41,6 +44,11 @@ class Categories
         $this->typeCategory = $typeCategory;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        return $this->getTypeCategory();
     }
 
     /**
@@ -69,4 +77,18 @@ class Categories
 
         return $this;
     }
+
+    public function getPhoto(): ?string
+    {
+        return $this->photo;
+    }
+
+    public function setPhoto(string $photo): self
+    {
+        $this->photo = $photo;
+
+        return $this;
+    }
+
+    
 }

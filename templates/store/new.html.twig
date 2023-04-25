@@ -1,11 +1,13 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Store{% endblock %}
+{% block title %}Información de Contacto{% endblock %}
 
 {% block body %}
-    <h1>Create new Store</h1>
-
-    {{ include('store/_form.html.twig') }}
-
-    <a href="{{ path('app_store_index') }}">back to list</a>
+    <div class="content">
+        <div class="actionsForm backBtn">
+            <a href="{{ path('app_store_index') }}" class="btn btn-add"><i class="fa-solid fa-arrow-left me-2"></i> Volver</a>
+        </div>
+        <h1 class="titleSection"><i class="fa-regular fa-square-plus me-2"></i> Agregar Información de Contacto</h1>
+        {{ include('store/_form.html.twig') }}
+    </div>
 {% endblock %}

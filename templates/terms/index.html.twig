@@ -1,35 +1,39 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Terms index{% endblock %}
+{% block title %}Términos y Condiciones{% endblock %}
 
 {% block body %}
-    <h1>Terms index</h1>
-
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Description</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for term in terms %}
-            <tr>
-                <td>{{ term.id }}</td>
-                <td>{{ term.description }}</td>
-                <td>
-                    <a href="{{ path('app_terms_show', {'id': term.id}) }}">show</a>
-                    <a href="{{ path('app_terms_edit', {'id': term.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('app_terms_new') }}">Create new</a>
+    <div class="content">
+        <h1 class="titleSection"><i class="fa-solid fa-shop me-3"></i> Términos y Condiciones</h1>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    {# <th>Id</th> #}
+                    <th>Descripción</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for term in terms %}
+                <tr>
+                    {# <td>{{ term.id }}</td> #}
+                    <td>{{ term.description }}</td>
+                    <td>
+                        <a href="{{ path('app_terms_show', {'id': term.id}) }}" class="btn btn-show">
+                            <i class="fa-regular fa-eye"></i>
+                        </a>
+                        <a href="{{ path('app_terms_edit', {'id': term.id}) }}" class="btn btn-edit">
+                            <i class="fa-regular fa-pen-to-square"></i>
+                        </a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">No se encontró información sobre Términos y Condiciones</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <a href="{{ path('app_terms_new') }}" class="btn btn-add"><i class="fa-regular fa-square-plus me-2"></i> Agregar</a>
+    </div>
 {% endblock %}
