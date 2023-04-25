@@ -44,7 +44,7 @@
                             {% for presentation in product.presentation %}
                                 {% set presentationTypes = presentationTypes|merge([presentation.typePresentation]) %}
                             {% endfor %}
-                            {{ presentationTypes|join(', ') }}
+                            {{ presentationTypes|join('kg, ') }}kg
                             </td>
                         </tr>
                         <tr>

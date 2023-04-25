@@ -100,7 +100,10 @@ class ProductsType extends AbstractType
                     'class' => 'form-check-label',
                 ],
                 'class' => Presentation::class,
-                'choice_label' => 'typePresentation',
+                // 'choice_label' => 'typePresentation',
+                'choice_label' => function($presentation) {
+                    return $presentation->getTypePresentation() . 'kg'; // Concatenate 'kg' to the typeCategory field
+                },
                 'expanded' => true,
                 'multiple' => true,
                 'by_reference' => false, // Set to false to allow collection to be modified
